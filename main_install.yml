@@ -31,8 +31,9 @@
         - apache2
         - libapache2-mod-wsgi-py3
         - neutron-server
-        - keystone
         - glance
+        - keystone
+
       when: ansible_os_family == 'Debian'
       tags:
         - openstack_packages  # Tag for the OpenStack packages
@@ -44,14 +45,14 @@
   tasks:
     - name: Install MySQL Server Core
       apt:
-        name: mysql-server-core-8.0
+        name: mysql-server-core
         state: present
       tags:
         - mysql  # Tag for MySQL installation
         
     - name: Install MySQL Server 8.0
       apt:
-        name: mysql-server-8.0
+        name: mysql-server
         state: present
 
     - name: Start MySQL Service
